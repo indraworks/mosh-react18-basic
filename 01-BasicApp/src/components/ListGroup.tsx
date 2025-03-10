@@ -49,6 +49,25 @@ const ListGroup: React.FC<Props> = ({
 };
 
 export default ListGroup;
+
+/*
+BEDA PROPS DAN STATE :
+
+jadi beda props dan state 
+
+-props sama spetti variable argument yg lewat function 
+-utk props kita berlakukan sbgai imutable ( tidak dapat di change ) 
+  
+  
+ -utk state dia adalah variable local yg ada di component ( re-use component) 
+ -jdai bersifat sprti local variable biasa 
+ - bersifat mutable/bisa diubah langsung 
+ -nah state d declare di local re-use component dgn hoook mis  cons [state,setState] = useState(bla bla  )
+
+
+
+*/
+
 /*
  diatas ada 2 functuon 
  1.locak yg handleClick dimana merupakan event ketika saat dicklick dia update index lewat functuon SelectedItem hook
