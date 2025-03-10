@@ -4,9 +4,14 @@ import { useState } from "react";
 interface Props {
   propItems: string[];
   propTitle: string;
+  fnSelectedItem: (item: string) => void;
 }
 
-const ListGroup: React.FC<Props> = ({ propItems, propTitle }) => {
+const ListGroup: React.FC<Props> = ({
+  propItems,
+  propTitle,
+  fnSelectedItem,
+}) => {
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(0);
   //const handleClick = (event: MouseEvent) => console.log(event);
 
@@ -30,7 +35,10 @@ const ListGroup: React.FC<Props> = ({ propItems, propTitle }) => {
                 : "list-group-item"
             }
             key={item}
-            onClick={() => handleClick(index)}
+            onClick={() => {
+              handleClick(index);
+              fnSelectedItem(item);
+            }}
           >
             {item}
           </li>
@@ -41,6 +49,18 @@ const ListGroup: React.FC<Props> = ({ propItems, propTitle }) => {
 };
 
 export default ListGroup;
+/*
+ diatas ada 2 functuon 
+ 1.locak yg handleClick dimana merupakan event ketika saat dicklick dia update index lewat functuon SelectedItem hook
+ 2.functiuon yg berasal dari App.tsx atau parent jadi ini lwat props  sbgai param jadi mesti didaftarkan 
+   dimana yg di daftarkan di interface adlaah "NAMA VARIABEL FUNCTION " DAN TIYPE DARI VARIABLE INI DIMANA 
+   VARIABLE INI DALAH  BERTYPE FUNCTION  SBB : ()=>void 
+   jadi nama_variabel :type_variable 
+   fnSelectedItem:()=> void
+
+
+
+*/
 
 /*
 kalau mau buat sesuatu atau iternati atau rendering yg dinamy memang dibutuhkan itenary function 
