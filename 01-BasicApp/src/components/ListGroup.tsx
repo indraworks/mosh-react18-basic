@@ -1,11 +1,12 @@
 //kita perlu import MouseEvnet utk param event di functon onClcik dan sejenisnya
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
-const ListGroup = () => {
-  let items = ["New York", "San jose", "Alphine", "TOkyo", "Jakarta"];
-  //let selectedIndex = 0; //angka -1 artinya tak dipilih
-  //   items = [];
-  //ahrus buat state
+interface Props {
+  propItems: string[];
+  propTitle: string;
+}
+
+const ListGroup: React.FC<Props> = ({ propItems, propTitle }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(0);
   //const handleClick = (event: MouseEvent) => console.log(event);
 
@@ -14,21 +15,15 @@ const ListGroup = () => {
   };
   return (
     <>
-      <h1>List:</h1>
+      <h1>{propTitle}</h1>
       <ul className="list-group">
         {/* ingat jika didalam part jsx maka javascript harus 
            smua tulisan harus didahuli dgn {} kurung kurawal!
            jang lupa pada param slain item kita masukan index 
         */}
-        {items.length === 0 && <h2>no list Item SHow</h2>}
-        {items.map((item, index) => (
-          //utk dibagian li kita harus masukan key karena harus ada index
-          //atau harus unix utk masing2 item kita bisa masukan key=item  krn gak sama tiap2
-          //element item dari array items diatas!
+        {propItems.length === 0 && <h2>no list Item SHow</h2>}
+        {propItems.map((item, index) => (
           <li
-            // className="list-group-item active"
-            //kita buat itenarinya dulu apakah sama dgn index diatas jika sama maka activekan  active property di className tsb!
-            //nah dibawah ini gak kerja kita harus guna state karena gak akan update ke UI nya kalau dibawah ini !
             className={
               selectedIndex === index
                 ? "list-group-item active"
