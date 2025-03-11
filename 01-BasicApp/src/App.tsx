@@ -1,7 +1,14 @@
-import Alert from "./components/Alert";
-
+import Button from "./components/Button";
+const tulisan: string = "Submit";
 const App = () => {
-  return <Alert>{<h2>Hello My WOrld COnntent!!!</h2>} </Alert>;
+  const handleClick = () => console.log("hi click");
+  return (
+    <div className="p-5 ">
+      <Button prOnClick={handleClick} color="danger">
+        {tulisan}
+      </Button>
+    </div>
+  );
 };
 
 export default App;
