@@ -51,6 +51,18 @@ const ListGroup: React.FC<Props> = ({
 export default ListGroup;
 
 /*
+passing prop with with children 
+jadi intinya gini jika kita pasing text lwat props masih ok tapi gimana jika yg kita passing 
+adalah content html  kalau text pada props maka variable di interface yg dibuat string 
+tapi jika yg dipasing adalah content maka ini complex maka  variable dideclare adalah :ReactNode! 
+nah kita praktekan 
+
+
+
+
+*/
+
+/*
 BEDA PROPS DAN STATE :
 
 jadi beda props dan state 
