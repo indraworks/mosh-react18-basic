@@ -1,9 +1,25 @@
+import { useState } from "react";
 import Button from "./components/Button";
+import Alert from "./components/Alert";
 const tulisan: string = "Submit";
 const App = () => {
-  const handleClick = () => console.log("hi click");
+  const [makeVisible, setMakeVisible] = useState(false);
+  function handleClick() {
+    setMakeVisible(true);
+  }
+  function onClose() {
+    setMakeVisible(false);
+    //atau bisa langsung dibawah functon nya Alert  onClick={()=>setMakeVisible(false)}
+  }
+
   return (
     <div className="p-5 ">
+      {makeVisible && (
+        <Alert prpOnClose={onClose}>
+          <h3>Hello Iam Alert!</h3>
+        </Alert>
+      )}
+
       <Button prOnClick={handleClick} color="danger">
         {tulisan}
       </Button>
@@ -12,6 +28,22 @@ const App = () => {
 };
 
 export default App;
+
+/*
+mengenai functuon hide dan show maka harus gunakan state !  leat && component Anak!
+nah hide dan show dari component anak dipicu dari tombol button maka nnti kita buat oncCLick 
+supaya pasing ke interface ./anak button param function tsb !
+
+
+*/
+
+/*
+menfenai Button
+
+
+
+
+*/
 
 /*
 Kalau pasing RFeactNode type gak bisa kayak gini!!
